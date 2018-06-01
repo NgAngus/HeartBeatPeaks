@@ -22,15 +22,12 @@ classdef KNN < handle
             distances = sum(differences.^2, 1).^.5;
             [~,ind] = sort(distances, 2, 'ascend');
             votes = knn.labels(ind(1:k));
-            
-            %-----Question 2(a)--------
             [M,F] = mode(votes)
             if k == 1 || range(F) == 0
                 result = votes(1);
             else
                 result = M;
             end
-           %---------------------------------
         end
         
         function plotRegions(knn, k)
